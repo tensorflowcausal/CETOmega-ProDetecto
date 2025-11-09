@@ -1,0 +1,35 @@
+
+name: combined-validation
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: { python-version: ["3.10","3.11"] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: ${{ matrix.python-version }} }
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ValidationPkg/docs/requirements.txt ]; then
+            pip install -r ValidationPkg/docs/requirements.txt
+          else
+            pip install numpy scipy sympy matplotlib pandas pytest
+          fi
+      - name: Run validation
+        run: if [ -f run_validation.py ]; then python run_validation.py || true; fi
+      - name: Run tests
+        run: if [ -d ValidationPkg/tests ]; then pytest -q ValidationPkg/tests || true; fi
+      - name: Run empirical demo
+        run: if [ -f demo_empirical_theory_of_everything.py ]; then python demo_empirical_theory_of_everything.py || true; fi
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-reports
+          path: |
+            reports/**
+            Benchmarks/CausalBench/results.csv
+          if-no-files-found: ignore

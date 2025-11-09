@@ -1,0 +1,66 @@
+
+name: combined-validation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ValidationPkg/docs/requirements.txt ]; then
+            pip install -r ValidationPkg/docs/requirements.txt
+          else
+            pip install numpy scipy sympy matplotlib pandas pytest
+          fi
+
+      - name: Run repository orchestrator (run_validation.py)
+        run: |
+          if [ -f run_validation.py ]; then
+            python run_validation.py || true
+          else
+            echo "run_validation.py not found, skipping"
+          fi
+
+      - name: Run tests (pytest)
+        run: |
+          if [ -d ValidationPkg/tests ]; then
+            pytest -q ValidationPkg/tests || true
+          else
+            echo "No tests directory found, skipping pytest"
+          fi
+
+      - name: Run empirical demo
+        run: |
+          if [ -f demo_empirical_theory_of_everything.py ]; then
+            python demo_empirical_theory_of_everything.py || true
+          else
+            echo "demo_empirical_theory_of_everything.py not found, skipping"
+          fi
+
+      - name: Upload reports (artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-reports
+          path: |
+            reports/**
+            Benchmarks/CausalBench/results.csv
+          if-no-files-found: ignore

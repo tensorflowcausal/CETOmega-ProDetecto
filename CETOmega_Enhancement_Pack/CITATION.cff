@@ -1,0 +1,11 @@
+
+cff-version: 1.2.0
+message: "If you use this project, please cite it as below."
+title: "CETOmega: The Causal-Informational Engine"
+authors:
+  - family-names: "Balfagón"
+    given-names: "Christian"
+    orcid: "https://orcid.org/0009-0003-0835-5519"
+version: "19.5"
+date-released: "2025-01-01"
+license: "MIT"

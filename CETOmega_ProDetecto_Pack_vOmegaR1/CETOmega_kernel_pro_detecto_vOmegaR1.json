@@ -1,0 +1,51 @@
+{
+  "version": "CET\u03a9-Kernel-Spec v\u03a9.R1",
+  "notes": "Ejemplo de kernel Pad\u00e9\u2013Stieltjes de baja orden (2 polos) para escenarios pro-detecto. Todos los pesos son positivos (Stieltjes/CBF).",
+  "units": {
+    "M_star": "m^-1",
+    "m_j": "m^-1",
+    "frequencies_input": "Hz"
+  },
+  "target_parameters": {
+    "M_star": 0.001,
+    "sum_cj_range": [
+      0.001,
+      0.01
+    ]
+  },
+  "poles": [
+    {
+      "label": "j1",
+      "m_j": 0.0008,
+      "c_j": 0.0006
+    },
+    {
+      "label": "j2",
+      "m_j": 0.002,
+      "c_j": 0.0005
+    }
+  ],
+  "observables": {
+    "AI": {
+      "target_abs_phase_rad": 0.0001,
+      "freq_band_Hz": [
+        100,
+        10000
+      ]
+    },
+    "OM": {
+      "target_frac_shift": 0.0001,
+      "freq_band_Hz": [
+        100,
+        100000
+      ]
+    },
+    "cQED": {
+      "target_frac_shift": 0.0001,
+      "freq_band_Hz": [
+        10000.0,
+        10000000.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "vOmegaR1",
+  "units": {
+    "m": "1/m",
+    "omega": "Hz"
+  },
+  "poles": [
+    {
+      "c": 0.42,
+      "m": 1.5
+    },
+    {
+      "c": 0.33,
+      "m": 4.0
+    },
+    {
+      "c": 0.25,
+      "m": 9.0
+    }
+  ],
+  "meta": {
+    "note": "example kernel; replace with your calibrated one"
+  },
+  "evolution": {
+    "targets": {
+      "frac_shift": 0.0001
+    }
+  }
+}

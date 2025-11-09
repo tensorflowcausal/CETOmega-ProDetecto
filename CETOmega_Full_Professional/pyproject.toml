@@ -1,0 +1,16 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cetomega"
+version = "19.5.0"
+description = "Causal–Informational Theory (CETΩ⁺) — reference implementation & validation"
+authors = [{name = "Christian Balfagón", email = "Lyosranch@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24", "scipy>=1.11", "sympy>=1.12", "matplotlib>=3.8",
+  "pandas>=2.0", "emcee>=3.1", "jax[cpu]>=0.4.13", "arviz>=0.17",
+  "pytest>=7.4"
+]

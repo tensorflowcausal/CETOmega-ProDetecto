@@ -1,0 +1,45 @@
+name: CETΩ CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: List repo (debug)
+        run: ls -R
+
+      - name: Run FRG -> Bench -> Ringdown
+        run: |
+          chmod +x run_all.sh || true
+          bash ./run_all.sh
+
+      - name: Run Quantum targets
+        run: |
+          make quantum
+          make quantum_boot
+
+      - name: Upload reports artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: CETOmega-reports
+          path: |
+            reports/**
+            kernels/*_Fomega.csv
+          retention-days: 14

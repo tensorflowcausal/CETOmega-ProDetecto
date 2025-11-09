@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+reports/bench_out/
+reports/*.json
+kernels/*_Fomega.csv

@@ -1,0 +1,18 @@
+{
+  "empirical": {
+    "double_slit": {
+      "max_rmse": 0.03
+    },
+    "ringdown": {
+      "min": 1e-06,
+      "max": 0.001
+    },
+    "qft_recovery": {
+      "tol": 0.0001
+    }
+  },
+  "internal": {
+    "hankel_psd_order": 8,
+    "spectral_pos_tol": 0.0
+  }
+}

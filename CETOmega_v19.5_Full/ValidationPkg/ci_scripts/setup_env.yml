@@ -1,0 +1,8 @@
+name: cetomega-v19p5
+channels: [conda-forge]
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib

@@ -1,0 +1,1 @@
+[![Combined CI](https://github.com/USER/REPO/actions/workflows/combined.yml/badge.svg)](https://github.com/USER/REPO/actions/workflows/combined.yml)

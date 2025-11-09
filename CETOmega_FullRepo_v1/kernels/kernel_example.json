@@ -1,0 +1,4 @@
+{
+  "type": "example_kernel",
+  "params": {"c1": 1.0, "m1": 0.1}
+}

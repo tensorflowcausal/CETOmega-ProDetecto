@@ -1,0 +1,9 @@
+# experiment_id,delta_t_ns,P_nojump,sigma_P
+# delta_t_ns: interrogation spacing in nanoseconds
+# P_nojump: measured survival (no-jump) probability per sequence
+# sigma_P: standard error of P_nojump
+expA,5.0,0.82,0.01
+expA,10.0,0.88,0.009
+expA,20.0,0.92,0.008
+expA,40.0,0.955,0.007
+expA,80.0,0.972,0.006

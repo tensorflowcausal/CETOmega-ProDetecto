@@ -1,0 +1,15 @@
+
+name: cetomega-pro
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib
+  - pandas
+  - pip
+  - pip:
+    - emcee
+    - arviz
+    - pytest

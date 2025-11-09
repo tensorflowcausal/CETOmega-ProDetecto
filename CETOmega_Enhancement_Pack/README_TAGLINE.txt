@@ -1,0 +1,1 @@
+Unified causal–informational framework integrating gravity, quantum mechanics, and cosmology.
