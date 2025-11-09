@@ -1,0 +1,77 @@
+{
+  "theory": {
+    "spectral_positivity": {
+      "ok": true,
+      "info": {
+        "min_rho": 0.0009999833334166665,
+        "violations": 0
+      }
+    },
+    "hankel_psd": {
+      "ok": true,
+      "info": {
+        "min_eig": 3.4996893590713114e-12,
+        "order": 8
+      }
+    },
+    "local_limit": {
+      "ok": true,
+      "info": {
+        "max_abs_err": 9.99999999995449e-06,
+        "tol": 0.0001
+      }
+    }
+  },
+  "empirical": {
+    "double_slit": {
+      "ok": true,
+      "info": {
+        "rmse": 2.7677853946257408e-09,
+        "max_rmse": 0.03,
+        "n_points": 201
+      }
+    },
+    "ringdown": {
+      "ok": true,
+      "info": {
+        "range": [
+          0.0002,
+          0.0005
+        ],
+        "bounds": [
+          1e-06,
+          0.001
+        ]
+      }
+    },
+    "qft_recovery": {
+      "ok": true,
+      "info": {
+        "max_abs_err": 1e-05,
+        "tol": 0.0001
+      }
+    }
+  },
+  "summary": {
+    "PASS_theory": true,
+    "PASS_empirical": true,
+    "config": {
+      "empirical": {
+        "double_slit": {
+          "max_rmse": 0.03
+        },
+        "ringdown": {
+          "min": 1e-06,
+          "max": 0.001
+        },
+        "qft_recovery": {
+          "tol": 0.0001
+        }
+      },
+      "internal": {
+        "hankel_psd_order": 8,
+        "spectral_pos_tol": 0.0
+      }
+    }
+  }
+}
